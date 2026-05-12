@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS2PolicyExtension", "CS2PolicyExtension.csproj", "{78369140-B44F-498B-947E-1D52F4F14E0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS2PolicyExtension", "CS2PolicyExtension\CS2PolicyExtension.csproj", "{78369140-B44F-498B-947E-1D52F4F14E0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
