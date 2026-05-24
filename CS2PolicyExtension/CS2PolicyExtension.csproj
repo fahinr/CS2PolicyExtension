@@ -24,6 +24,9 @@
         <Reference Include="Colossal.Localization">
             <Private>false</Private>
         </Reference>
+        <Reference Include="Colossal.UI">
+            <Private>false</Private>
+        </Reference>
         <Reference Include="Colossal.Mathematics">
             <Private>false</Private>
         </Reference>
@@ -63,5 +66,12 @@
         <None Include="$(ModPropsFile)" Link="Properties\Mod.props"/>
         <None Include="$(ModTargetsFile)" Link="Properties\Mod.targets"/>
     </ItemGroup>
+
+    <Target Name="DeployCustomUIAssets" AfterTargets="DeployWIP">
+        <ItemGroup>
+            <CustomUIAssets Include="$(MSBuildProjectDirectory)\UI\**\*.*"/>
+        </ItemGroup>
+        <Copy SourceFiles="@(CustomUIAssets)" DestinationFiles="@(CustomUIAssets->'$(DeployDir)\UI\%(RecursiveDir)%(Filename)%(Extension)')"/>
+    </Target>
 
 </Project>

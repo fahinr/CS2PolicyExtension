@@ -1,16 +1,26 @@
 using System.Collections.Generic;
 using Colossal.Localization;
+using CS2PolicyExtension.Policies;
 using Game.SceneFlow;
 
 namespace CS2PolicyExtension
 {
     internal static class Localization
     {
-        private static readonly MemorySource Source = new MemorySource(new Dictionary<string, string>
+        private static readonly MemorySource Source = new MemorySource(CreateEntries());
+
+        private static Dictionary<string, string> CreateEntries()
         {
-            { "Policy.TITLE[CS2PolicyExtension.PublicWiFi]", "Public Wi-Fi" },
-            { "Policy.DESCRIPTION[CS2PolicyExtension.PublicWiFi]", "Provides free public Wi-Fi access in the district, slightly improving citizen wellbeing." }
-        });
+            var entries = new Dictionary<string, string>();
+
+            foreach (var policy in PolicyDefinitions.All)
+            {
+                entries.Add($"Policy.TITLE[{policy.PrefabName}]", policy.Title);
+                entries.Add($"Policy.DESCRIPTION[{policy.PrefabName}]", policy.Description);
+            }
+
+            return entries;
+        }
 
         public static void Register()
         {
